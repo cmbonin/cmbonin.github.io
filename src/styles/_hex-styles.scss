@@ -1,0 +1,83 @@
+
+//--- IMPORT ---------------------------------//
+@import './hexi-flexi-grid.scss';
+
+
+//--- TEMPLATE -------------------------------//
+#hexGrid {
+//--- SETTINGS -------------- VALUES ---------//
+  $gridWidth:   100vw;       // 'auto',(px,pt,r/em,vw/h)
+  $gridHeight:  auto;       // 'auto',(px,pt,r/em,vw/h)
+  $columnCount: 12;          // 'auto',(number)
+  $rowCount:   7;          // 'auto',(number)
+  $hexCount:    auto;       // 'auto',(number)
+  $hexLayout:   row;        // 'row','column','strict'
+  $gridOrient:  vertical;   // 'vertical','horizontal'
+  $crop:        none;       // 'none','crop'
+  $cropFactor:  2;          // (number)
+  $hexContent:  'center';       // 'auto','center'
+  $hexSize:     auto;       // 'auto',(px,pt,r/em,vw/h)
+  $hexMargin:   4px;      // (px,pt,r/em,vw/h)
+  $hexShape:    hexagon;    // 'hexagon','circle'
+  $hexColor:    #F9FC3A;    // hexcode,rgb/a,named
+  $images:      '';
+//--- MIXINS ---------------------------------//
+  @include hexWrapper($gridWidth,$gridHeight,
+    $gridOrient,$rowCount,$columnCount);
+  .hexCrop {@include hexCrop($crop,$cropFactor)}
+  .hexContainer {@include hexContainer($gridWidth,$gridHeight,
+    $gridOrient,$columnCount, $images,$rowCount,
+    $hexLayout,$hexContent,$hexShape,$hexColor,
+    $hexMargin,$hexCount,$hexSize)}
+//--- CUSTOM STYLES --------------------------//
+  margin: .1rem auto 1rem;
+
+      // margin: 2.59px 3px;
+
+  .r-2 {
+    background-color: #DBE64D;
+  }
+  .r-3 {
+    background-color: #BDCF60;
+  }
+  .r-4 {
+    background-color: #9FB973;
+  }
+  .r-5 {
+    background-color: #80A386;
+  }
+  .r-6 {
+    background-color: #628D99;
+  }
+  .r-7 {
+    background-color: #4476AC;
+  }
+
+  .hexCrop {
+    height: 100%;
+  }
+
+  .hex {
+    user-select: none;
+    transform: scale(.9);
+    transition: transform .2s ease-in-out;
+    font-weight: bold;
+    font-size: 5vw;
+    color: #fff;
+    font-family: 'Bungee Shade', monospace;
+    &:hover {transform: scale(1.05)}
+  }
+
+
+  .hex .dark {
+    color: #000;
+  }
+
+//--------------------------------------------//
+}
+
+@media only screen and (max-width : 768px) {
+  #hexGrid .hex {
+    margin: 2.59px 3px;
+  }
+}

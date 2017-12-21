@@ -1,5 +1,47 @@
-$bg-color: purple;
+@import './_hex-styles.scss';
+
+$bg-color: #2660bf;
 
 body {
  background: $bg-color;
+ margin: 0;
+ font-family: monospace;
+}
+
+.page-content {
+  margin: 40px auto;
+  color: #fff;
+  max-width: 1200px;
+}
+
+.menu {
+  font-family: 'Bungee Shade', monospace;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 550px;
+  width: 80%;
+  margin: 0 auto 40px;
+}
+
+.menu a {
+  font-size: 3vw;
+  line-height: 40px;
+  margin-right: 10px;
+  color: #fff;
+  text-decoration: none;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    transition: color 200ms ease-in;
+    color: #000;
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .menu a {
+    font-size: 5vw;
+    line-height: 24px;
+  }
 }
