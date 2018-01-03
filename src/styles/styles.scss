@@ -1,4 +1,107 @@
-@import './_hex-styles.scss';
+// @import './_hex-styles.scss';
+
+// customiseable
+$hex-size: 6em;
+$hex-row-count: 7;
+$hex-col-count: 12;
+$hex-padding: 0.5%;
+
+//
+$ratio: 87%;
+$cell: 1/($hex-col-count + 0.5);
+$cell-width: percentage(1/($hex-col-count + 0.5));
+$hex-width: $cell-width * 0.75;
+$hex-margin: $cell-width  * 0.125;
+@mixin each($num) {
+  &:nth-child(#{$num}n) {
+    @content
+  }
+}
+
+.hexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  min-width: 300px;
+}
+
+.hex {
+  display: flex;
+  position: relative;
+  // margin: 0.2ssem;
+  width: $hex-width;
+// background: lightblue;
+  // margin-bottom: $hex-margin;
+  //
+  // margin-top: -(($hex-width / 100%)  * ($ratio / 100%) / 2  + $hex-margin/2);
+  // margin-top: -(percentage(($hex-width / 100%)  * (1.5 / 8) * 2));
+  margin-right: $hex-margin;
+  margin-left: $hex-margin;
+  padding:  $hex-padding/2  $hex-padding;
+  box-sizing: border-box;
+}
+
+
+.hex:hover span {
+  background: #F58787;
+  cursor: pointer;
+}
+
+.hex span {
+  // display: block;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  transition: all 150ms ease-in-out;
+  // margin-top: -50%;
+  font-size: $hex-width/100% * 50 * 1vw;
+}
+
+.hex span:after {
+  content: '';
+  padding-bottom: $ratio;
+}
+
+
+.hex:nth-child(#{$hex-col-count*2}n + #{$hex-col-count+1}) {
+    // background: purple;
+}
+
+.hex:nth-child(#{$hex-col-count}n + 1) span {
+    background: pink;
+}
+
+.hex:nth-child(2n) span {
+  background: purple;
+}
+
+.hex:nth-child(#{$hex-col-count*2}n+#{$hex-col-count+1}) {
+  margin-left: $hex-width/2 + $hex-margin*2;
+}
+
+.hex:nth-child(n+0):nth-child(-n+#{$hex-col-count}){
+  margin-top: $hex-margin;
+}
+
+.hex.odd {
+  // margin-top: -($cell-width/2) + $hex-margin;
+  // background: green;
+}
+
+
+// .hex {
+//   @include each($hex-col-count) {
+//   // @include each(calc(#{$hex-col-count} + 1)) {
+//     background: red;
+//   }
+// }
+
+
 
 $bg-color: #2660bf;
 

@@ -10,13 +10,13 @@ const content = [
     classes: 'dark'
   },
   {
-    content: 'Bonin',
-    rowIndex: 2,
-    colIndex: 5
+    content: 'B',
+    rowIndex: 1,
+    colIndex: 9
   },
   {
     content: 'Developer',
-    rowIndex: 4,
+    rowIndex: 3,
     colIndex: 2,
     classes: 'dark'
   },
@@ -27,7 +27,9 @@ const createGrid = () => {
   for (let r = 0;r<rowCount; r++) {
     for (let c = 0;c<colCount; c++) {
       const char = getChar(r, c);
-      grid += `<span class='hex'>${char}</span>`;
+      const odd = r%2 === 0 ? 'even' : 'odd';
+      const className = `r${r} c${c} ${odd}`;
+      grid += `<span class='hex ${className}'>${char}</span>`;
     }
   }
   return grid;
@@ -36,14 +38,18 @@ const createGrid = () => {
 const getChar = (rIndex, cIndex) => {
   let char = '';
   const position = colCount * rIndex  + cIndex;
-  const rowContent = content.find(item => item.rowIndex === rIndex);
+  const rows = content.filter(item => item.rowIndex === rIndex);
   let className = '';
-  if (rowContent && rowContent.content) {
-    const contentColIndex = rowContent.colIndex;
-    className = rowContent.classes || '';
-    char = (cIndex >= contentColIndex) ?  rowContent.content[cIndex - contentColIndex] : false;
+  if (rows.length >= 1) {
+    rows.forEach(row => {
+      const contentColIndex = row.colIndex;
+      if (cIndex >= contentColIndex && row.content[cIndex - contentColIndex]){
+        className = row.classes || '';
+        char = row.content[cIndex - contentColIndex];
+      }
+    });
   }
-  const html = (char) ? `<span class='${className}'>${char}</span>` : '';
+  const html = `<span class='${className}'>${char}</span>`;
   return  html;
 }
 
