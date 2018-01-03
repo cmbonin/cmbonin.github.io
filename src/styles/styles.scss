@@ -58,7 +58,7 @@ $hex-margin: $cell-width  * 0.125;
   webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   transition: all 150ms ease-in-out;
-  // margin-top: -50%;
+  margin-top: -50%;
   font-size: $hex-width/100% * 50 * 1vw;
 }
 
@@ -77,7 +77,7 @@ $hex-margin: $cell-width  * 0.125;
 }
 
 .hex:nth-child(2n) span {
-  background: purple;
+  // background: purple;
 }
 
 .hex:nth-child(#{$hex-col-count*2}n+#{$hex-col-count+1}) {
