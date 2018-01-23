@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  color: #1f1f1f;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 140%;
+  margin: 0 0 5px;
+  line-height: auto;
+}
+
+h2 {
+  margin: 0 0 20px;
+  font-size: 80%;
+}
+
+p {
+
+}
+
+a {
+
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.row {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 0 20px;
+}
+
+.menu {
+  width: 100%;
+  text-align: center;
+  font-family: 'Bungee Shade', monospace;
+  font-size: 210%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 70px;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.menu li~li {
+  margin-left: 40px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #1f1f1f;
+}
+
+.menu a:hover {
+  color: #444;
+}
