@@ -8,11 +8,13 @@ h1 {
   font-size: 140%;
   margin: 0 0 5px;
   line-height: auto;
+  text-transform: uppercase;
 }
 
 h2 {
   margin: 0 0 20px;
   font-size: 80%;
+  text-transform: uppercase;
 }
 
 p {
